@@ -3,6 +3,7 @@
 
   var header = document.querySelector(".site-header");
   var navToggle = document.querySelector(".nav-toggle");
+  var navClose = document.querySelector(".nav-close");
   var navMobile = document.querySelector(".nav-mobile");
   var body = document.body;
 
@@ -25,10 +26,8 @@
   }
 
   if (navToggle && navMobile) {
-    navToggle.addEventListener("click", function () {
-      var isOpen = body.classList.contains("nav-open");
-      isOpen ? closeNav() : openNav();
-    });
+    navToggle.addEventListener("click", openNav);
+    if (navClose) navClose.addEventListener("click", closeNav);
     navMobile.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", closeNav);
     });
